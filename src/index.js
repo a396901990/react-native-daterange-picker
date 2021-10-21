@@ -47,6 +47,7 @@ const DateRangePicker = ({
   buttonTextStyle,
   presetButtons,
   open,
+  onClosePress,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [weeks, setWeeks] = useState([]);
@@ -85,11 +86,12 @@ const DateRangePicker = ({
   };
 
   const _onOpen = () => {
-    if (typeof open !== "boolean") onOpen();
+    onOpen();
   };
 
   const _onClose = () => {
-    if (typeof open !== "boolean") onClose();
+    onClose();
+    onClosePress && onClosePress();
   };
 
   const onOpen = () => {
